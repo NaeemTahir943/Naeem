@@ -1,0 +1,27 @@
+
+package practice;
+
+import java.sql.*;
+public class Practice {
+public static final String USERNAME="root"; 
+public static final String PASSWORD="";
+public static final String CONN_STRING="jdbc:mysql://localhost:3306/practice ";
+    public static void main(String[] args) {
+   Connection Conn=null;
+   try{
+     Conn=DriverManager.getConnection(CONN_STRING,USERNAME,PASSWORD); 
+     System.out.println("connected");
+     Statement st=(Statement) Conn.createStatement();
+     int id=5;
+     String name="nasa";
+     int phoneNo=456;
+     String city="ads";
+     String address="wtf";
+      String insert="INSERT INTO prac VALUES('"+id+"','"+name+"','"+phoneNo+"','"+city+"','"+address+"');";
+     st.executeUpdate(insert);
+   }catch(SQLException e){
+       System.out.println("not connected");
+   }
+    }
+    
+}
